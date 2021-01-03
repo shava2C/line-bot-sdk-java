@@ -44,8 +44,7 @@ public class EchoApplication {
         if (event.getMessage().getText().equals("How are you?")){
             return new TextMessage("I'm great!");
         } else {
-            final String originalMessageText = event.getMessage().getText();
-            return new TextMessage(originalMessageText);
+            return new TextMessage(event.getMessage().getText());
         }
     }
 
