@@ -41,8 +41,12 @@ public class EchoApplication {
     @EventMapping
     public Message handleTextMessageEvent(MessageEvent<TextMessageContent> event) {
         log.info("event: " + event);
-        final String originalMessageText = event.getMessage().getText();
-        return new TextMessage(originalMessageText);
+        if (event.getMessage().getText().equals("How are you?")){
+            return new TextMessage("I'm great!");
+        } else {
+            final String originalMessageText = event.getMessage().getText();
+            return new TextMessage(originalMessageText);
+        }
     }
 
     @EventMapping
